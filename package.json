@@ -6,12 +6,19 @@
   "bin": {
     "getsub": "bin/getsub.js"
   },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/raduGaspar/getsub.git"
+  },
+  "bugs": {
+    "url": "https://github.com/raduGaspar/getsub/issues"
+  },
   "keywords": [
     "subtitle",
     "subtitles",
     "downloader"
   ],
-  "author": "Radu B. Gaspar",
+  "author": "Radu B. Gaspar <radu.bogdan.gaspar@gmail.com>",
   "license": "ISC",
   "preferGlobal": true,
   "dependencies": {
