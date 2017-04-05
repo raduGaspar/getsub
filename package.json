@@ -1,0 +1,22 @@
+{
+  "name": "getsub",
+  "version": "1.0.0",
+  "description": "A subtitle downloader utility",
+  "main": "./lib/index.js",
+  "bin": {
+    "getsub": "bin/getsub.js"
+  },
+  "keywords": [
+    "subtitle",
+    "subtitles",
+    "downloader"
+  ],
+  "author": "Radu B. Gaspar",
+  "license": "ISC",
+  "preferGlobal": true,
+  "dependencies": {
+    "bluebird": "^3.5.0",
+    "crypto": "0.0.3",
+    "request": "^2.81.0"
+  }
+}
