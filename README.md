@@ -20,10 +20,16 @@ getsub -h
 # will return a comma-separated list ex: en,es,pl,pt
 getsub -s path/to/file.ext
 
+# works with multiple files
+getsub -s *.ext
+
 # download subtitle for a given movie, tv-show, etc.
 # will download a *.srt with the same name as the video file
 # by default it will try to download an en subtitle
 getsub -v path/to/file.ext
+
+# works with multiple files
+getsub -v *.ext
 
 # you can specify the subtitle language to download like so:
 getsub -v path/to/file.ext -l es

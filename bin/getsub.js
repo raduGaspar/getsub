@@ -2,14 +2,16 @@
 const lib = require('../lib/index.js');
 const args = process.argv.slice(2);
 
-let file;
+let files;
 let opts = {};
+
+// supported arguments and their respective methods
 const knownArgs = {
   '-s': (val) => {
-    file = val;
+    files = val;
     Object.assign(opts, { search: true });
   },
-  '-v': val => file = val,
+  '-v': val => files = val,
   '-l': val => Object.assign(opts, { language: val }),
   '-h': () => {
     const help = `
@@ -24,12 +26,24 @@ const knownArgs = {
   },
 };
 
-for (let i = 0; i < args.length; i++) {
-  const method = knownArgs[args[i].trim()];
-  if (method) {
-    const nextParam = args[i+1];
-    method(knownArgs[nextParam] ? null : nextParam);
+// parse arguments and provided values
+const argsMap = {};
+let current;
+args.forEach((val) => {
+  if (knownArgs[val]) {
+    current = val;
+    argsMap[current] = [];
   }
-}
+  if (current !== val) {
+    argsMap[current].push(val);
+  }
+});
 
-lib.getSubtitle(file, opts);
+// call knownArgs methods with provided arguments
+Object.keys(argsMap).forEach((key) => {
+  knownArgs[key](argsMap[key]);
+});
+
+if (files) {
+  files.forEach(file => lib.getSubtitle(file, opts));
+}
